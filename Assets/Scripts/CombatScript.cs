@@ -55,33 +55,40 @@ public class CombatScript : MonoBehaviour
     //This function gets called whenever the player inputs the punch action
     void AttackCheck()
     {
-        if (isAttackingEnemy)
-            return;
-
-        //Check to see if the detection behavior has an enemy set
-        if (enemyDetection.CurrentTarget() == null)
+        if (enemyManager != null)
         {
-            if (enemyManager.AliveEnemyCount() == 0)
-            {
-                Attack(null, 0);
+            if (isAttackingEnemy)
                 return;
-            }
-            else
+
+            //Check to see if the detection behavior has an enemy set
+            if (enemyDetection.CurrentTarget() == null)
             {
-                lockedTarget = enemyManager.RandomEnemy();
+
+                if (enemyManager.AliveEnemyCount() == 0)
+                {
+                    Attack(null, 0);
+                    return;
+                }
+                else
+                {
+                    lockedTarget = enemyManager.RandomEnemy();
+                }
+
+
             }
+
+            //If the player is moving the movement input, use the "directional" detection to determine the enemy
+            if (enemyDetection.InputMagnitude() > .2f)
+                lockedTarget = enemyDetection.CurrentTarget();
+
+            //Extra check to see if the locked target was set
+            if (lockedTarget == null)
+                lockedTarget = enemyManager.RandomEnemy();
+
+            //AttackTarget
+            Attack(lockedTarget, TargetDistance(lockedTarget));
         }
-
-        //If the player is moving the movement input, use the "directional" detection to determine the enemy
-        if (enemyDetection.InputMagnitude() > .2f)
-            lockedTarget = enemyDetection.CurrentTarget();
-
-        //Extra check to see if the locked target was set
-        if(lockedTarget == null)
-            lockedTarget = enemyManager.RandomEnemy();
-
-        //AttackTarget
-        Attack(lockedTarget, TargetDistance(lockedTarget));
+      
     }
 
     public void Attack(EnemyScript target, float distance)

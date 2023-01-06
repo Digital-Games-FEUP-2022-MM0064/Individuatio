@@ -25,8 +25,30 @@ public class MovementInput : MonoBehaviour
 	private bool isGrounded;
 
 
+
+	public float gravity = -10f;
+	public float jumpHeight = 2f;
+
+	public Transform groundCheck;
+	public float groundDistance = 0.4f;
+	public LayerMask groundMask;
+	InputAction jump;
+
+
+
+
 	void Start()
 	{
+
+
+	#if ENABLE_INPUT_SYSTEM
+			
+
+			jump = new InputAction("PlayerJump", binding: "<Gamepad>/a");
+			jump.AddBinding("<Keyboard>/space");
+			jump.Enable();
+	#endif
+
 		anim = this.GetComponent<Animator>();
 		cam = Camera.main;
 		controller = this.GetComponent<CharacterController>();
@@ -38,12 +60,35 @@ public class MovementInput : MonoBehaviour
 
 		isGrounded = controller.isGrounded;
 
+
+
+		bool jumpPressed = false;
+
+		#if ENABLE_INPUT_SYSTEM
+				jumpPressed = Mathf.Approximately(jump.ReadValue<float>(), 1);
+		#else
+				jumpPressed = Input.GetButtonDown("Jump");
+		#endif
+
+
+
 		if (isGrounded)
 			verticalVel -= 0;
 		else
-			verticalVel -= 1;
+			verticalVel -= 1 * fallSpeed ;
 
-		moveVector = new Vector3(0, verticalVel * fallSpeed * Time.deltaTime, 0);
+
+		if (jumpPressed && isGrounded)
+		{
+			anim.SetTrigger("Jump");
+			verticalVel = Mathf.Sqrt(jumpHeight * -2f * gravity);
+		}
+
+
+
+
+
+		moveVector = new Vector3(0, verticalVel  * Time.deltaTime, 0);
 		controller.Move(moveVector);
 	}
 
@@ -105,9 +150,11 @@ public class MovementInput : MonoBehaviour
 		{
 			anim.SetFloat("InputMagnitude", inputMagnitude * acceleration, .1f,Time.deltaTime);
 		}
+
+		
 	}
 
-	#region Input
+#region Input
 
 	public void OnMove(InputValue value)
 	{
@@ -115,7 +162,7 @@ public class MovementInput : MonoBehaviour
 		moveAxis.y = value.Get<Vector2>().y;
 	}
 
-	#endregion
+#endregion
 
 	private void OnDisable()
 	{

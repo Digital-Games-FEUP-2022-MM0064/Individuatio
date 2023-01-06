@@ -21,7 +21,7 @@ public class LookWithMouse : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
 #if ENABLE_INPUT_SYSTEM
         float mouseX = 0, mouseY = 0;
