@@ -96,8 +96,8 @@ public class EnemyScript : MonoBehaviour
             StopEnemyCoroutines();
             DamageCoroutine = StartCoroutine(HitCoroutine());
 
-            enemyDetection.SetCurrentTarget(null);
-            isLockedTarget = false;
+            //enemyDetection.SetCurrentTarget(null);
+            //isLockedTarget = false;
             OnDamage.Invoke(this);
 
             health--;
@@ -148,7 +148,6 @@ public class EnemyScript : MonoBehaviour
         this.enabled = false;
         characterController.enabled = false;
         animator.SetTrigger("Death");
-        enemyManager.SetEnemyAvailiability(this, false);
     }
 
     public void SetRetreat()

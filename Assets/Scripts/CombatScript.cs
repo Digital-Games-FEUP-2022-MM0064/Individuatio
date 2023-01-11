@@ -63,27 +63,13 @@ public class CombatScript : MonoBehaviour
             //Check to see if the detection behavior has an enemy set
             if (enemyDetection.CurrentTarget() == null)
             {
-
-                if (enemyManager.AliveEnemyCount() == 0)
-                {
-                    Attack(null, 0);
-                    return;
-                }
-                else
-                {
-                    lockedTarget = enemyManager.RandomEnemy();
-                }
-
-
+                Attack(null, 0);
+                return;
             }
 
             //If the player is moving the movement input, use the "directional" detection to determine the enemy
             if (enemyDetection.InputMagnitude() > .2f)
                 lockedTarget = enemyDetection.CurrentTarget();
-
-            //Extra check to see if the locked target was set
-            if (lockedTarget == null)
-                lockedTarget = enemyManager.RandomEnemy();
 
             //AttackTarget
             Attack(lockedTarget, TargetDistance(lockedTarget));
@@ -106,7 +92,7 @@ public class CombatScript : MonoBehaviour
         if (distance < 15)
         {
             animationCount = (int)Mathf.Repeat((float)animationCount + 1, (float)attacks.Length);
-            string attackString = isLastHit() ? attacks[Random.Range(0, attacks.Length)] : attacks[animationCount];
+            string attackString = attacks[Random.Range(0, attacks.Length)] ;
             AttackType(attackString, attackCooldown, target, .65f);
         }
         else
@@ -126,11 +112,11 @@ public class CombatScript : MonoBehaviour
 
         if (attackCoroutine != null)
             StopCoroutine(attackCoroutine);
-        attackCoroutine = StartCoroutine(AttackCoroutine(isLastHit() ? 1.5f : cooldown));
+        attackCoroutine = StartCoroutine(AttackCoroutine(cooldown));
 
         //Check if last enemy
-        if (isLastHit())
-            StartCoroutine(FinalBlowCoroutine());
+        //if (isLastHit())
+        //    StartCoroutine(FinalBlowCoroutine());
 
         if (target == null)
             return;
@@ -171,10 +157,10 @@ public class CombatScript : MonoBehaviour
     void CounterCheck()
     {
         //Initial check
-        if (isCountering || isAttackingEnemy || !enemyManager.AnEnemyIsPreparingAttack())
+        if (isCountering || isAttackingEnemy)
             return;
 
-        lockedTarget = ClosestCounterEnemy();
+        //lockedTarget = ClosestCounterEnemy();
         OnCounterAttack.Invoke(lockedTarget);
 
         if (TargetDistance(lockedTarget) > 2)
@@ -217,7 +203,7 @@ public class CombatScript : MonoBehaviour
 
     public void HitEvent()
     {
-        if (lockedTarget == null || enemyManager.AliveEnemyCount() == 0)
+        if (lockedTarget == null)
             return;
 
         OnHit.Invoke(lockedTarget);
@@ -243,42 +229,19 @@ public class CombatScript : MonoBehaviour
         }
     }
 
-    EnemyScript ClosestCounterEnemy()
-    {
-        float minDistance = 100;
-        int finalIndex = 0;
-
-        for (int i = 0; i < enemyManager.allEnemies.Length; i++)
-        {
-            EnemyScript enemy = enemyManager.allEnemies[i].enemyScript;
-
-            if (enemy.IsPreparingAttack())
-            {
-                if (Vector3.Distance(transform.position, enemy.transform.position) < minDistance)
-                {
-                    minDistance = Vector3.Distance(transform.position, enemy.transform.position);
-                    finalIndex = i;
-                }
-            }
-        }
-
-        return enemyManager.allEnemies[finalIndex].enemyScript;
-
-    }
-
     void LerpCharacterAcceleration()
     {
         movementInput.acceleration = 0;
         DOVirtual.Float(0, 1, .6f, ((acceleration)=> movementInput.acceleration = acceleration));
     }
 
-    bool isLastHit()
+    /*bool isLastHit()
     {
         if (lockedTarget == null)
             return false;
 
         return enemyManager.AliveEnemyCount() == 1 && lockedTarget.health <= 1;
-    }
+    }*/
 
     #region Input
 

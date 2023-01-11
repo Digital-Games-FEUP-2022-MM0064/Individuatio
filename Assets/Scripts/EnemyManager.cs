@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    private EnemyScript[] enemies;
-    public EnemyStruct[] allEnemies;
+    private List<EnemyScript> enemies = new List<EnemyScript>();
+    [SerializeField] private List<GameObject> _spawnPoints = new List<GameObject>();
+    [SerializeField] private List<GameObject> _possibleEnemies = new List<GameObject>();
+    
     private List<int> enemyIndexes;
 
     [Header("Main AI Loop - Settings")]
@@ -14,147 +16,40 @@ public class EnemyManager : MonoBehaviour
     public int aliveEnemyCount;
     void Start()
     {
-        enemies = GetComponentsInChildren<EnemyScript>();
-
-        allEnemies = new EnemyStruct[enemies.Length];
-
-        for (int i = 0; i < allEnemies.Length; i++)
-        {
-            allEnemies[i].enemyScript = enemies[i];
-            allEnemies[i].enemyAvailability = true;
-        }
-
-        StartAI();
+        StartCoroutine(StartSpawningEnemies());
     }
 
-    public void StartAI()
+    IEnumerator StartSpawningEnemies()
     {
-        AI_Loop_Coroutine = StartCoroutine(AI_Loop(null));
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(1, 3));
+            int spawnIndex = Random.Range(0, _spawnPoints.Count);
+            int enemyIndex = Random.Range(0, _possibleEnemies.Count);
+            GameObject newEnemy = Instantiate(_possibleEnemies[enemyIndex], _spawnPoints[spawnIndex].transform.position, _possibleEnemies[enemyIndex].transform.rotation);
+            StartCoroutine(AI_Loop(newEnemy.GetComponent<EnemyScript>()));
+        }
     }
 
     IEnumerator AI_Loop(EnemyScript enemy)
     {
-        if (AliveEnemyCount() == 0)
-        {
-            StopCoroutine(AI_Loop(null));
-            yield break;
-        }
-
         yield return new WaitForSeconds(Random.Range(.5f,1.5f));
-
-        EnemyScript attackingEnemy = RandomEnemyExcludingOne(enemy);
-
-        if (attackingEnemy == null)
-            attackingEnemy = RandomEnemy();
-
-        if (attackingEnemy == null)
-            yield break;
+        
             
-        yield return new WaitUntil(()=>attackingEnemy.IsRetreating() == false);
-        yield return new WaitUntil(() => attackingEnemy.IsLockedTarget() == false);
-        yield return new WaitUntil(() => attackingEnemy.IsStunned() == false);
+        yield return new WaitUntil(()=>enemy.IsRetreating() == false);
+        yield return new WaitUntil(() => enemy.IsLockedTarget() == false);
+        yield return new WaitUntil(() => enemy.IsStunned() == false);
 
-        attackingEnemy.SetAttack();
+        enemy.SetAttack();
 
-        yield return new WaitUntil(() => attackingEnemy.IsPreparingAttack() == false);
+        yield return new WaitUntil(() => enemy.IsPreparingAttack() == false);
 
-        attackingEnemy.SetRetreat();
+        enemy.SetRetreat();
 
         yield return new WaitForSeconds(Random.Range(0,.5f));
 
-        if (AliveEnemyCount() > 0)
-            AI_Loop_Coroutine = StartCoroutine(AI_Loop(attackingEnemy));
+        StartCoroutine(AI_Loop(enemy));
     }
-
-    public EnemyScript RandomEnemy()
-    {
-        enemyIndexes = new List<int>();
-
-        for (int i = 0; i < allEnemies.Length; i++)
-        {
-            if (allEnemies[i].enemyAvailability)
-                enemyIndexes.Add(i);
-        }
-
-        if (enemyIndexes.Count == 0)
-            return null;
-
-        EnemyScript randomEnemy;
-        int randomIndex = Random.Range(0, enemyIndexes.Count);
-        randomEnemy = allEnemies[enemyIndexes[randomIndex]].enemyScript;
-
-        return randomEnemy;
-    }
-
-    public EnemyScript RandomEnemyExcludingOne(EnemyScript exclude)
-    {
-        enemyIndexes = new List<int>();
-
-        for (int i = 0; i < allEnemies.Length; i++)
-        {
-            if (allEnemies[i].enemyAvailability && allEnemies[i].enemyScript != exclude)
-                enemyIndexes.Add(i);
-        }
-
-        if (enemyIndexes.Count == 0)
-            return null;
-
-        EnemyScript randomEnemy;
-        int randomIndex = Random.Range(0, enemyIndexes.Count);
-        randomEnemy = allEnemies[enemyIndexes[randomIndex]].enemyScript;
-
-        return randomEnemy;
-    }
-
-    public int AvailableEnemyCount()
-    {
-        int count = 0;
-        for (int i = 0; i < allEnemies.Length; i++)
-        {
-            if (allEnemies[i].enemyAvailability)
-                count++;
-        }
-        return count;
-    }
-
-    public bool AnEnemyIsPreparingAttack()
-    {
-        foreach (EnemyStruct enemyStruct in allEnemies)
-        {
-            if (enemyStruct.enemyScript.IsPreparingAttack())
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-    public int AliveEnemyCount()
-    {
-        int count = 0;
-        for (int i = 0; i < allEnemies.Length; i++)
-        {
-            if (allEnemies[i].enemyScript.isActiveAndEnabled)
-                count++;
-        }
-        aliveEnemyCount = count;
-        return count;
-    }
-
-    public void SetEnemyAvailiability (EnemyScript enemy, bool state)
-    {
-        for (int i = 0; i < allEnemies.Length; i++)
-        {
-            if (allEnemies[i].enemyScript == enemy)
-                allEnemies[i].enemyAvailability = state;
-        }
-
-        if (FindObjectOfType<EnemyDetection>().CurrentTarget() == enemy)
-            FindObjectOfType<EnemyDetection>().SetCurrentTarget(null);
-    }
-
-
 }
 
 [System.Serializable]
