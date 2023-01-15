@@ -80,8 +80,8 @@ public class MovementInput : MonoBehaviour
 
 		if (jumpPressed && isGrounded)
 		{
-			anim.SetTrigger("Jump");
-			verticalVel = Mathf.Sqrt(jumpHeight * -2f * gravity);
+		//	anim.SetTrigger("Jump");
+			//verticalVel = Mathf.Sqrt(jumpHeight * -2f * gravity);
 		}
 
 

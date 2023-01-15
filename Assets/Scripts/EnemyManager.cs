@@ -23,7 +23,7 @@ public class EnemyManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(1, 3));
+            yield return new WaitForSeconds(Random.Range(3, 20));
             int spawnIndex = Random.Range(0, _spawnPoints.Count);
             int enemyIndex = Random.Range(0, _possibleEnemies.Count);
             GameObject newEnemy = Instantiate(_possibleEnemies[enemyIndex], _spawnPoints[spawnIndex].transform.position, _possibleEnemies[enemyIndex].transform.rotation);
