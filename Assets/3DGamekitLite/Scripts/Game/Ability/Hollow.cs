@@ -1,6 +1,8 @@
 using UnityEngine;
 using Gamekit3D;
 using DG.Tweening;
+using UnityEngine.Rendering;
+
 public class Hollow : AbilityBase
 {
     [Header("Hollow Properties")]
@@ -8,6 +10,7 @@ public class Hollow : AbilityBase
     [SerializeField] private Damageable damageable = default;
     [SerializeField] private Animator animator = default;
     [SerializeField] private GameObject hollow = default;
+    [SerializeField] private Volume dashVolume = default;
 
 
     public override void Ability()
@@ -43,7 +46,15 @@ public class Hollow : AbilityBase
                 hollow.GetComponent<RedHollowControl>().Dead();
             }).AppendCallback(() => damageable.isInvulnerable = false)
 ;
+        DOVirtual.Float(0, 1, 4f, SetDashVolumeWeight)
+          .OnComplete(() => DOVirtual.Float(1, 0, .5f, SetDashVolumeWeight));
 
+  
 
     }
+    void SetDashVolumeWeight(float weight)
+    {
+        dashVolume.weight = weight;
+    }
+
 }

@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Speak",
+                    "type": "Value",
+                    "id": "5022280f-5ef1-4017-844b-069580d6aeed",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -373,6 +382,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Ability3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82153003-5f57-4a82-a7c0-0a577b3e9c1c",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Speak",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -27,6 +27,7 @@ public class PlayerInput : MonoBehaviour
     protected bool m_Ability1;
     protected bool m_Ability2;
     protected bool m_Ability3;
+    protected bool m_Speak;
     protected bool m_ExternalInputBlocked;
 
     [SerializeField]
@@ -76,6 +77,10 @@ public class PlayerInput : MonoBehaviour
     public bool Ability3
     {
         get { return m_Ability3 && !playerControllerInputBlocked && !m_ExternalInputBlocked; }
+    }
+    public bool Speak
+    {
+        get { return m_Speak && !playerControllerInputBlocked && !m_ExternalInputBlocked; }
     }
     public bool Pause
     {
@@ -148,6 +153,12 @@ public class PlayerInput : MonoBehaviour
     {
 
         m_Ability3 = value.isPressed;
+    }
+
+    void OnSpeak(InputValue value)
+    {
+
+        m_Speak = value.isPressed;
     }
     IEnumerator AttackWait()
     {
