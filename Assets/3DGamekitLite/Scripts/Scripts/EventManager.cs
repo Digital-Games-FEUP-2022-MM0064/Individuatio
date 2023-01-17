@@ -26,7 +26,6 @@ public class EventManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(m_Input.Speak);
         // Bit shift the index of the layer (7) to get a bit mask
         int layerMask = 1 << 7;
 

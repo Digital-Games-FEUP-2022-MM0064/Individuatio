@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "PickUpItem",
+                    "type": "Value",
+                    "id": "3b0df735-c389-498d-9a08-3f7c4f9094ed",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -393,6 +402,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Speak",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "512ef0a7-462e-49a7-b048-11773662e649",
+                    "path": "<Keyboard>/c",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickUpItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

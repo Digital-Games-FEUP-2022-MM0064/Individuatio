@@ -72,7 +72,7 @@ namespace Gamekit3D
         /// </summary>
         public void PlayRandomClip()
         {
-            clip = InternalPlayRandomClip(null, bankId: 0);
+           // clip = InternalPlayRandomClip(null, bankId: 0);
         }
 
         AudioClip InternalPlayRandomClip(Material overrideMaterial, int bankId)

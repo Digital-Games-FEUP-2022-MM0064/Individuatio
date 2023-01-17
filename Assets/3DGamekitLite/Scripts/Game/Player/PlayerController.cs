@@ -4,6 +4,7 @@ using System.Collections;
 using Cinemachine;
 using DG.Tweening;
 using UnityEngine.Animations.Rigging;
+using System;
 
 namespace Gamekit3D
 {
@@ -110,6 +111,10 @@ namespace Gamekit3D
         // Tags
         readonly int m_HashBlockInput = Animator.StringToHash("BlockInput");
 
+
+        private float lastContact;
+        private GameObject mask;
+
         protected bool IsMoveInput
         {
             get { return !Mathf.Approximately(m_Input.MoveInput.sqrMagnitude, 0f); }
@@ -214,8 +219,12 @@ namespace Gamekit3D
                 m_Abilities[3].TriggerAbility();
 
             }
-                
 
+
+            if (m_Input.PickUpItem)
+            {
+                m_Animator.SetTrigger("PickUpItem");
+            }
 
             CalculateForwardMovement();
             CalculateVerticalMovement();
@@ -228,7 +237,7 @@ namespace Gamekit3D
                     UpdateOrientation();
             }
 
-            PlayAudio();
+            //PlayAudio();
 
             TimeoutToIdle();
 
@@ -746,5 +755,25 @@ namespace Gamekit3D
             m_Respawning = true;
             m_Damageable.isInvulnerable = true;
         }
+        private void OnTriggerEnter(Collider other)
+        {
+            Debug.Log(other.gameObject);
+            if (other.gameObject.CompareTag("Mask")) {
+                lastContact = Time.time;
+                mask = other.gameObject;
+            }
+        }
+        public void GotMask() {
+            float elapsedTime = Time.time - lastContact;
+            if (elapsedTime < 5 && mask != null)
+            {
+                mask.GetComponent<MaskScript>().Picked();
+
+            }
+        }
+    
     }
+
+
+
 }

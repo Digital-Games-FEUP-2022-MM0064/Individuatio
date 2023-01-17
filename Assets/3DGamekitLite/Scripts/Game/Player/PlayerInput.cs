@@ -28,6 +28,8 @@ public class PlayerInput : MonoBehaviour
     protected bool m_Ability2;
     protected bool m_Ability3;
     protected bool m_Speak;
+    protected bool m_PickUpItem;
+
     protected bool m_ExternalInputBlocked;
 
     [SerializeField]
@@ -81,6 +83,10 @@ public class PlayerInput : MonoBehaviour
     public bool Speak
     {
         get { return m_Speak && !playerControllerInputBlocked && !m_ExternalInputBlocked; }
+    }
+    public bool PickUpItem
+    {
+        get { return m_PickUpItem && !playerControllerInputBlocked && !m_ExternalInputBlocked; }
     }
     public bool Pause
     {
@@ -159,6 +165,11 @@ public class PlayerInput : MonoBehaviour
     {
 
         m_Speak = value.isPressed;
+    }
+    void OnPickUpItem (InputValue value)
+    {
+
+        m_PickUpItem = value.isPressed;
     }
     IEnumerator AttackWait()
     {
