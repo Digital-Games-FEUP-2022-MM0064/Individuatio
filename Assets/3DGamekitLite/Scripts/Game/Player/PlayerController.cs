@@ -265,6 +265,7 @@ namespace Gamekit3D
 
             if (aim)
             {
+                
                 transform.rotation = Quaternion.Euler(0f, gameCamera.m_XAxis.Value, 0f);
                 aimCamera.m_Priority = 11;
                 DOVirtual.Float(aimRig.weight, 1f, 0.2f, SetAimRigWeight);
@@ -353,7 +354,7 @@ namespace Gamekit3D
             float acceleration = IsMoveInput ? k_GroundAcceleration : k_GroundDeceleration;
 
             if (m_IsAiming)
-                m_DesiredForwardSpeed = Mathf.Clamp(moveInput.magnitude * maxForwardSpeed, 0, 4);
+                m_DesiredForwardSpeed = 0;
 
             // Adjust the forward speed towards the desired speed.
             m_ForwardSpeed = Mathf.MoveTowards(m_ForwardSpeed, m_DesiredForwardSpeed, acceleration * Time.deltaTime);
