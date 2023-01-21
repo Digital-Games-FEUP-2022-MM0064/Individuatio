@@ -1,0 +1,463 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &841588932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841588933}
+  m_Layer: 9
+  m_Name: StrafeCamPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &841588933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841588932}
+  m_LocalRotation: {x: -0.033591785, y: -0.033604875, z: -0.7062802, w: 0.70633614}
+  m_LocalPosition: {x: 1.6628131, y: 0.27573794, z: -1.4083397}
+  m_LocalScale: {x: 0.99996, y: 1.00004, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5318210546488271068}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1745268275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1745268276}
+  m_Layer: 9
+  m_Name: StrafeCamTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1745268276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745268275}
+  m_LocalRotation: {x: -0.033591785, y: -0.033604875, z: -0.7062802, w: 0.70633614}
+  m_LocalPosition: {x: 1.0625725, y: 0.86949116, z: 10.087625}
+  m_LocalScale: {x: 1, y: 1.00004, z: 1.0000399}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5318210546488271068}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6440633751093346520
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -9070493210130169274, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_UpperArm
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.0628026
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.078944206
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8183481454299698827, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_ThumbEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: -8006009767450596044, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_IndexDistal
+      objectReference: {fileID: 0}
+    - target: {fileID: -7657966619581158213, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Spine
+      objectReference: {fileID: 0}
+    - target: {fileID: -7360747449169001873, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_IndexProximal
+      objectReference: {fileID: 0}
+    - target: {fileID: -7121769801107515815, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_PinkyProximal
+      objectReference: {fileID: 0}
+    - target: {fileID: -6621945745981909287, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_RingIntermediate
+      objectReference: {fileID: 0}
+    - target: {fileID: -6370085079684087283, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_Shoulder
+      objectReference: {fileID: 0}
+    - target: {fileID: -6234591296559379751, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_MiddleIntermediate
+      objectReference: {fileID: 0}
+    - target: {fileID: -6170625038081293824, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_LowerLeg
+      objectReference: {fileID: 0}
+    - target: {fileID: -6056541330796499132, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_IndexIntermediate
+      objectReference: {fileID: 0}
+    - target: {fileID: -5857696854640597626, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_RingEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: -5561550452697079657, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_Toes
+      objectReference: {fileID: 0}
+    - target: {fileID: -5195048882033904264, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Neck
+      objectReference: {fileID: 0}
+    - target: {fileID: -4999088201633142198, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_RingEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: -4728426434207774260, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_Hand
+      objectReference: {fileID: 0}
+    - target: {fileID: -4501530691011011137, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_MiddleEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: -4332706925441422008, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_LowerLeg
+      objectReference: {fileID: 0}
+    - target: {fileID: -4278032810995721380, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_ThumbEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: -3799395697873186154, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_ThumbProximal
+      objectReference: {fileID: 0}
+    - target: {fileID: -3542885339558904099, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_UpperChest
+      objectReference: {fileID: 0}
+    - target: {fileID: -3478013746326755454, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_MiddleIntermediate
+      objectReference: {fileID: 0}
+    - target: {fileID: -3214267034143217929, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_PinkyIntermediate
+      objectReference: {fileID: 0}
+    - target: {fileID: -3086436065929644917, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_UpperLeg
+      objectReference: {fileID: 0}
+    - target: {fileID: -2084811680363313996, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_Foot
+      objectReference: {fileID: 0}
+    - target: {fileID: -1781356600409242780, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Head
+      objectReference: {fileID: 0}
+    - target: {fileID: -1703473491307067327, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_ToeEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: -1425791611860619382, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_RingDistal
+      objectReference: {fileID: 0}
+    - target: {fileID: -1268151995469589007, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_PinkyDistal
+      objectReference: {fileID: 0}
+    - target: {fileID: -1200856079203341021, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_ToeEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: -751476226918971245, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_Foot
+      objectReference: {fileID: 0}
+    - target: {fileID: -552831747908440785, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_IndexIntermediate
+      objectReference: {fileID: 0}
+    - target: {fileID: -290750445479886849, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_Arm
+      objectReference: {fileID: 0}
+    - target: {fileID: -203856693384778745, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: -76546954072915012, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_MiddleProximal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9171100556185337, guid: 8c86db9c665e0514c90e859c74560558, type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_Shoulder
+      objectReference: {fileID: 0}
+    - target: {fileID: 414117464747255840, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_PinkyIntermediate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Root
+      objectReference: {fileID: 0}
+    - target: {fileID: 1082271958561512970, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Hips
+      objectReference: {fileID: 0}
+    - target: {fileID: 1339101018200438765, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_Toes
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711505207429034123, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_RingIntermediate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158975759703390516, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_MiddleDistal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586065998465600510, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_RingProximal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715566404302941441, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_Hand
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898355158428612036, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_HeadEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 3047284246813455858, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_MiddleDistal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135921509060577837, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_UpperLeg
+      objectReference: {fileID: 0}
+    - target: {fileID: 3588849560313704984, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_PinkyDistal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614653200513675785, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_IndexEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882815353823017779, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_RingDistal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948933247560734027, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_Arm
+      objectReference: {fileID: 0}
+    - target: {fileID: 3974016661214395164, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_IndexEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114030615378554161, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_ThumbDistal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4237274458221626025, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_ThumbDistal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441848305933595309, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_IndexDistal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549111882529890269, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_IndexProximal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120724536234783804, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_MiddleEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240733294840144465, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_PinkyEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514210125699187276, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_PinkyProximal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363479242261063072, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_ThumbIntermediate
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542137907003004905, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_PinkyEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732535366517880319, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_RingProximal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7776229726456038893, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_ThumbProximal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817898888258712963, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_UpperArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8953972740105248388, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Right_ThumbIntermediate
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037727976738196030, guid: 8c86db9c665e0514c90e859c74560558,
+        type: 3}
+      propertyPath: m_Name
+      value: Ellen_Left_MiddleProximal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c86db9c665e0514c90e859c74560558, type: 3}
+--- !u!4 &5318210546488271068 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8021001004253913084, guid: 8c86db9c665e0514c90e859c74560558,
+    type: 3}
+  m_PrefabInstance: {fileID: 6440633751093346520}
+  m_PrefabAsset: {fileID: 0}

@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "TabPress",
+                    "type": "Value",
+                    "id": "43cb9c76-e49f-4ee1-a360-daa1acc11cc2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -413,6 +422,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PickUpItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a6a9475-2561-4fbc-860d-aa54cba1e968",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TabPress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

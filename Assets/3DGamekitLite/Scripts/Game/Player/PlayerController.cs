@@ -25,6 +25,13 @@ namespace Gamekit3D
         public float idleTimeout = 5f;            // How long before Ellen starts considering random idles.
         public bool canAttack;                    // Whether or not Ellen can swing her staff.
 
+
+
+
+
+
+
+
         public CinemachineFreeLook gameCamera;            // Reference used to determine the camera's direction.
         public CinemachineVirtualCamera aimCamera;
         public Rig aimRig;
@@ -115,6 +122,11 @@ namespace Gamekit3D
         private float lastContact;
         private GameObject mask;
 
+
+
+
+
+
         protected bool IsMoveInput
         {
             get { return !Mathf.Approximately(m_Input.MoveInput.sqrMagnitude, 0f); }
@@ -187,7 +199,7 @@ namespace Gamekit3D
         // Called automatically by Unity once every Physics step.
         void FixedUpdate()
         {
-  
+
 
 
             CacheAnimatorState();
@@ -225,6 +237,9 @@ namespace Gamekit3D
             {
                 m_Animator.SetTrigger("PickUpItem");
             }
+;
+        
+
 
             CalculateForwardMovement();
             CalculateVerticalMovement();
@@ -237,7 +252,7 @@ namespace Gamekit3D
                     UpdateOrientation();
             }
 
-            //PlayAudio();
+            PlayAudio();
 
             TimeoutToIdle();
 
@@ -758,12 +773,14 @@ namespace Gamekit3D
         private void OnTriggerEnter(Collider other)
         {
             Debug.Log(other.gameObject);
-            if (other.gameObject.CompareTag("Mask")) {
+            if (other.gameObject.CompareTag("Mask"))
+            {
                 lastContact = Time.time;
                 mask = other.gameObject;
             }
         }
-        public void GotMask() {
+        public void GotMask()
+        {
             float elapsedTime = Time.time - lastContact;
             if (elapsedTime < 5 && mask != null)
             {
@@ -771,7 +788,7 @@ namespace Gamekit3D
 
             }
         }
-    
+
     }
 
 

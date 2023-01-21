@@ -29,6 +29,7 @@ public class PlayerInput : MonoBehaviour
     protected bool m_Ability3;
     protected bool m_Speak;
     protected bool m_PickUpItem;
+    protected bool m_TabPress;
 
     protected bool m_ExternalInputBlocked;
 
@@ -87,6 +88,10 @@ public class PlayerInput : MonoBehaviour
     public bool PickUpItem
     {
         get { return m_PickUpItem && !playerControllerInputBlocked && !m_ExternalInputBlocked; }
+    }
+    public bool TabPress
+    {
+        get { return m_TabPress && !playerControllerInputBlocked && !m_ExternalInputBlocked; }
     }
     public bool Pause
     {
@@ -170,6 +175,11 @@ public class PlayerInput : MonoBehaviour
     {
 
         m_PickUpItem = value.isPressed;
+    }
+    void OnTabPress(InputValue value)
+    {
+
+        m_TabPress = value.isPressed;
     }
     IEnumerator AttackWait()
     {
